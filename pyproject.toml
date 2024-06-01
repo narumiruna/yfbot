@@ -1,11 +1,12 @@
 [tool.poetry]
-name = "template"
+name = "yfbot"
 version = "0.1.0"
 description = ""
 authors = ["narumi <toucans-cutouts0f@icloud.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+yfinance = "^0.2.40"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.0"
@@ -15,7 +16,7 @@ toml = "^0.10.2"
 mypy = "^1.10.0"
 
 [tool.poetry.scripts]
-template = "template.cli:main"
+yfbot = "yfbot.cli:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
