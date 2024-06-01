@@ -8,6 +8,8 @@ def get_ticker_string(s: str) -> str:
     if symbol is None:
         return f"{s}, No data available"
 
+    short_name = t.info.get("shortName")
+
     open_price = t.info.get("open")
     high_price = t.info.get("dayHigh")
     low_price = t.info.get("dayLow")
@@ -18,7 +20,7 @@ def get_ticker_string(s: str) -> str:
     ask_price = t.info.get("ask")
     bid_price = t.info.get("bid")
 
-    format_string = f"{symbol}"
+    format_string = f"▪️ {short_name}({symbol})"
     format_string += f", Open: {open_price}"
     format_string += f", High: {high_price}"
     format_string += f", Low: {low_price}"
@@ -27,7 +29,7 @@ def get_ticker_string(s: str) -> str:
         format_string += f", Current: {current_price}"
     elif ask_price and bid_price:
         mid_price = (ask_price + bid_price) / 2
-        format_string += f", Mid: {mid_price}"
+        format_string += f", Mid: {mid_price:.2f}"
 
     if current_price and previous_close:
         net_change = current_price - previous_close
