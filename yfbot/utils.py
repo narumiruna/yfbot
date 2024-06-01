@@ -6,7 +6,7 @@ def get_ticker_string(s: str) -> str:
 
     symbol = t.info.get("symbol")
     if symbol is None:
-        return f"{s}, No data available"
+        return f"{s} not found."
 
     short_name = t.info.get("shortName")
 
@@ -20,7 +20,7 @@ def get_ticker_string(s: str) -> str:
     ask_price = t.info.get("ask")
     bid_price = t.info.get("bid")
 
-    format_string = f"▪️ {short_name}({symbol})"
+    format_string = f"▪️{short_name}({symbol})"
     format_string += f", Open: {open_price}"
     format_string += f", High: {high_price}"
     format_string += f", Low: {low_price}"

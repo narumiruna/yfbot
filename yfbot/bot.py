@@ -25,7 +25,7 @@ class Bot:
 
         return cls(token=token)
 
-    async def query_ticker(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    async def query_ticker(self, update: Update, _: ContextTypes.DEFAULT_TYPE) -> None:
         if update.message is None:
             return
 
