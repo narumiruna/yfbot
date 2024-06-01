@@ -1,4 +1,4 @@
-import yfinance as yf
+import yfinance as yf  # type: ignore
 
 
 def get_ticker_string(s: str) -> str:
