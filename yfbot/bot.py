@@ -26,6 +26,12 @@ class Bot:
         return cls(token=token)
 
     async def query_ticker(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        if update.message is None:
+            return
+
+        if update.message.text is None:
+            return
+
         logger.info(f"Received message: {update.message.text}")
 
         symbols = update.message.text.lstrip("/yf").strip().upper().split(" ")
