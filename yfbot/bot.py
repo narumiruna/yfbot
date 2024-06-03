@@ -32,11 +32,11 @@ class Bot:
         if update.message.text is None:
             return
 
-        logger.info(f"Received message: {update.message.text}")
+        logger.info("Received message: '{}' from: {}", update.message.text, update.message.chat.full_name)
 
         symbols = update.message.text.lstrip("/yf").strip().upper().split(" ")
 
-        logger.info(f"Querying symbols: {symbols}")
+        logger.info("Querying symbols: {}", symbols)
         reply_text = "\n".join([get_ticker_string(s) for s in symbols])
 
         await update.message.reply_text(reply_text)
