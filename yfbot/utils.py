@@ -26,10 +26,14 @@ def get_ticker_string(s: str) -> str:
     format_string += f", Low: {low_price}"
 
     last_price = None
+
+    # append current price
     if current_price:
         format_string += f", Current: {current_price}"
         last_price = current_price
-    elif ask_price and bid_price:
+
+    # append mid price
+    if ask_price and bid_price:
         mid_price = (ask_price + bid_price) / 2
         format_string += f", Mid: {mid_price:.2f}"
         last_price = mid_price
