@@ -25,14 +25,17 @@ def get_ticker_string(s: str) -> str:
     format_string += f", High: {high_price}"
     format_string += f", Low: {low_price}"
 
+    last_price = None
     if current_price:
         format_string += f", Current: {current_price}"
+        last_price = current_price
     elif ask_price and bid_price:
         mid_price = (ask_price + bid_price) / 2
         format_string += f", Mid: {mid_price:.2f}"
+        last_price = mid_price
 
-    if current_price and previous_close:
-        net_change = current_price - previous_close
+    if last_price and previous_close:
+        net_change = last_price - previous_close
         net_change_percentage = net_change / previous_close * 100
         format_string += f", Net Change: {net_change_percentage:.2f}%"
 
