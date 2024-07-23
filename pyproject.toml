@@ -6,7 +6,7 @@ authors = ["narumi <toucans-cutouts0f@icloud.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-yfinance = "^0.2.40"
+yfinance = "^0.2.41"
 python-dotenv = "^1.0.1"
 python-telegram-bot = "^21.4"
 loguru = "^0.7.2"
