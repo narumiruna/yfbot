@@ -1,5 +1,5 @@
 install:
-	poetry install
+	poetry install --sync
 
 lint:
 	poetry run ruff check .
